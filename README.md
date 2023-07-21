@@ -18,6 +18,10 @@ A python program to download Apple TV Plus movie and tv-show trailers. Video str
 
 - [ffmpeg](https://ffmpeg.org/download.html)
 
+## Demo
+
+![demo](https://raw.githubusercontent.com/dropcreations/Manzana-Apple-TV-Plus-Trailers/main/assets/demo.gif)
+
 ## __How to use?__
 
 First of all clone this project or download the project as a zip file and extract it to your pc. (or you can see [Releases](https://github.com/dropcreations/Manzana-Apple-TV-Plus-Trailers/releases))
@@ -37,6 +41,20 @@ Now open terminal and run below command (Use `py` or `python3` if `python` doesn
 ```
 python manzana.py [url]
 ```
+
+While downloading streams you will ask what stream you want. When it asked for stream's `ID`, you can use multiple options as mentioned below.
+
+__Video stream__
+
+- You can only select one stream for the ouput, give it's `ID`.
+
+__Audio stream__
+
+- You can select multiple streams, give `ID`s as a comma seperated list. Remember the firs `ID` you give in the list will mark as the default stream in output. __(ex: 5, 2, 16, 20...)__
+
+__Subtitle stream__
+
+- You can also select multiple streams or all streams if you want. Give `ID`s as a list or simply type `all` to get all tracks. Remember when you using `all` the first stream in the list will mark as the default stream in output.
 
 If you don't need audio. just use `--no-audio` or `-an` argument with command
 
