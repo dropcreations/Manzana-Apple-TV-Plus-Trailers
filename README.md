@@ -27,7 +27,8 @@ A python program to download Apple TV Plus movie and tv-show trailers. Video str
 First of all clone this project or download the project as a zip file and extract it to your pc. (or you can see [Releases](https://github.com/dropcreations/Manzana-Apple-TV-Plus-Trailers/releases))
 
 ```
-git clone https://github.com/dropcreations/Manzana-Apple-TV-Plus-Trailers.git && cd Manzana-Apple-TV-Plus-Trailers
+git clone https://github.com/dropcreations/Manzana-Apple-TV-Plus-Trailers.git
+cd Manzana-Apple-TV-Plus-Trailers
 ```
 
 Install required modules for python (use `pip3` if `pip` doesn't work for you)
