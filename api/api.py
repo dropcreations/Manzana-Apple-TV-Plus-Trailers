@@ -8,7 +8,7 @@ from urllib.request import urlopen
 from urllib.error import URLError, HTTPError
 
 from utils import logger
-from api.movie import movie
+from api.content import content
 
 HEADERS = {
     "content-type": "application/json",
@@ -45,6 +45,14 @@ class AppleTVPlus(object):
                 self.id = splits[-1]
                 self.kind = splits[2]
 
+                if self.kind in ["episode", "season"]:
+                    self.kind = "show"
+
+                    if "showId" in __url.query:
+                        self.id = str(__url.query).replace('showId=', '')
+                    else:
+                        logger.error("Unable to parse showId from URL!", 1)
+
             else: logger.error("URL is invalid!", 1)
         else: logger.error("URL is invalid!", 1)
         
@@ -73,16 +81,15 @@ class AppleTVPlus(object):
     def __get_json(self):
         apiUrl = f"https://tv.apple.com/api/uts/v3/{self.kind}s/{self.id}"
 
-        if self.kind == "movie":
-            params = {
-                "caller": "web",
-                "locale": "en-US",
-                "pfm": "web",
-                "sf": "143441",
-                "utscf": "OjAAAAAAAAA~",
-                "utsk": "6e3013c6d6fae3c2::::::235656c069bb0efb",
-                "v": "68"
-            }
+        params = {
+            "caller": "web",
+            "locale": "en-US",
+            "pfm": "web",
+            "sf": "143441",
+            "utscf": "OjAAAAAAAAA~",
+            "utsk": "6e3013c6d6fae3c2::::::235656c069bb0efb",
+            "v": "68"
+        }
         
         response = requests.get(
             url=apiUrl,
@@ -93,6 +100,7 @@ class AppleTVPlus(object):
 
     def getInfo(self, url):
         self.__getUrl(url)
-        
-        if self.kind == "movie":
-            return movie(self.__get_json())
+
+        return content(
+            self.__get_json()
+        )
