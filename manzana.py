@@ -31,7 +31,7 @@ def main():
     parser.add_argument(
         '-v',
         '--version',
-        version="Manzana: Apple TV Plus Trailers v1.0.0",
+        version="Manzana: Apple TV Plus Trailers v1.0.1",
         action="version"
     )
     parser.add_argument(
