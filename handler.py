@@ -64,8 +64,9 @@ def arguments(args):
                 item["uri"],
                 TEMP,
                 item["file"],
-                "Downloading \"{}\" {} audio stream...".format(
+                "Downloading \"{}\"{} {} audio stream...".format(
                     item["name"].strip(),
+                    " (AD)" if item["isAD"] else "",
                     item["codec"]
                 )
             )
