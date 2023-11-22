@@ -12,7 +12,7 @@ A python program to download Apple TV Plus movie and tv-show trailers. Video str
 
 - [x] Add non-original movie trailers.
 - [x] Add tv-show trailers support.
-- [ ] Add tags to the output video.
+- [x] Add tags to the output video.
 
 ## __Required__
 
