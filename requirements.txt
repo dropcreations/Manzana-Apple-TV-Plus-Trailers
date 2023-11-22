@@ -1,4 +1,6 @@
+bs4
 rich
 m3u8
+aiohttp
 requests
-sanitize_filename
+mutagen
