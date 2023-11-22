@@ -16,7 +16,8 @@ A python program to download Apple TV Plus movie and tv-show trailers. Video str
 
 ## __Required__
 
-- [ffmpeg](https://ffmpeg.org/download.html)
+- [FFmpeg](https://ffmpeg.org/download.html)
+- [MP4Box](https://gpac.io)
 
 ## Demo
 
