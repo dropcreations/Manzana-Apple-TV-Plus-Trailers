@@ -1,3 +1,5 @@
+assets
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -8,7 +10,6 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-assets/
 build/
 develop-eggs/
 dist/
