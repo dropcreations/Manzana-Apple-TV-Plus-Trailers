@@ -8,12 +8,6 @@ A python program to download Apple TV Plus movie and tv-show trailers. Video str
     <img alt="Apple TV Plus" src="https://raw.githubusercontent.com/dropcreations/Manzana-Apple-TV-Plus-Trailers/main/assets/manzana__lightmode.png">
 </picture>
 
-## __TODO__
-
-- [x] Add non-original movie trailers.
-- [x] Add tv-show trailers support.
-- [x] Add tags to the output video.
-
 ## __Required__
 
 - [FFmpeg](https://ffmpeg.org/download.html)
@@ -21,7 +15,7 @@ A python program to download Apple TV Plus movie and tv-show trailers. Video str
 
 ## Demo
 
-![demo](https://raw.githubusercontent.com/dropcreations/Manzana-Apple-TV-Plus-Trailers/main/assets/demo.gif)
+![demo](https://raw.githubusercontent.com/dropcreations/Manzana-Apple-TV-Plus-Trailers/main/assets/usage_demo.gif)
 
 ## __How to use?__
 
@@ -52,11 +46,11 @@ __Video stream__
 
 __Audio stream__
 
-- You can select multiple streams, give `ID`s as a comma seperated list. Remember the firs `ID` you give in the list will mark as the default stream in output. __(ex: 5, 2, 16, 20...)__
+- You can select multiple streams or all streams, give `ID`s as a space seperated list or type `all` or `a`. __(ex: 5 2 16 20...)__
 
 __Subtitle stream__
 
-- You can also select multiple streams or all streams if you want. Give `ID`s as a list or simply type `all` to get all tracks. Remember when you using `all` the first stream in the list will mark as the default stream in output.
+- You can also select multiple streams or all streams if you want. Give `ID`s as a space seperated list or simply type `all` or `a` to get all tracks.
 
 If you don't need audio. just use `--no-audio` or `-an` argument with command
 
@@ -70,36 +64,28 @@ If you don't need subtitles. just use `--no-subs` or `-sn` argument with command
 python manzana.py --no-subs [url]
 ```
 
+This will ask for you what trailer to download when the url has multiple trailers. If you want all, simply type `all` or `a` to select all or type the ID. If you want to downlaod the default trailer in the url without seeing available trailers, use `--default` or `-d` argument with command
+
+```
+python manzana.py --d [url]
+```
+
 Get help using `-h` or `--help` command
 
 ```
-usage: manzana.py [-h] [-v] [-an] [-sn] url
+usage: manzana.py [-h] [-v] [-d] [-an] [-sn] url
 
 Manzana: Apple TV Plus Trailers Downloader
 
 positional arguments:
-  url              Apple TV Plus URL for a movie
+  url              AppleTV+ URL for a movie or a tv-show.
 
 optional arguments:
   -h, --help       show this help message and exit
   -v, --version    show program's version number and exit
-  -an, --no-audio  Don't download audio streams. (default: False)
-  -sn, --no-subs   Don't download subtitle streams. (default: False)
+  -d, --default    get only the default content trailer. (default: False)
+  -an, --no-audio  don't download audio streams. (default: False)
+  -sn, --no-subs   don't download subtitle streams. (default: False)
 ```
-
-## About me
-
-Hi, You might recognize me as GitHub's [dropcreations](https://github.com/dropcreations).
-
-__Other useful python scripts done by me__
-
-| Project        | Github location                                |
-|----------------|------------------------------------------------|
-| MKVExtractor   | https://github.com/dropcreations/MKVExtractor  |
-| FLAC-Tagger    | https://github.com/dropcreations/flactagger    |
-| MP4/M4A-Tagger | https://github.com/dropcreations/mp4tagger     |
-| MKV-Tagger     | https://github.com/dropcreations/mkvtagger     |
-
-<br>
 
 - __NOTE: If you found any issue using this program, mention in issues section__
