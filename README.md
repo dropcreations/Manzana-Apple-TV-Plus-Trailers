@@ -88,4 +88,8 @@ optional arguments:
   -sn, --no-subs   don't download subtitle streams. (default: False)
 ```
 
+## Support
+
+[<img src="https://assets-global.website-files.com/5c14e387dab576fe667689cf/64f1a9ddd0246590df69ea01_kofi_long_button_blue%25402x-p-500.png" alt="ko-fi" width="200">](https://ko-fi.com/dropcodes)
+
 - __NOTE: If you found any issue using this program, mention in issues section__
