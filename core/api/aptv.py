@@ -40,15 +40,15 @@ class AppleTVPlus:
 
         c = BeautifulSoup(r.text, "html.parser")
         m = c.find(
-            "meta",
+            "script",
             attrs={
-                'name': 'web-tv-app/config/environment',
-                'content': True
+                'type': 'application/json',
+                'id': 'serialized-server-data'
             }
         )
 
-        accessToken = json.loads(unquote(m.get("content")))
-        accessToken = accessToken["MEDIA_API"]["token"]
+        accessToken = json.loads(m.text)
+        accessToken = accessToken[0]["data"]["configureParams"]["developerToken"]
         self.session.headers.update(
             {'authorization': f'Bearer {accessToken}'}
         )
