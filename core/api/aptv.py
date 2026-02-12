@@ -48,7 +48,10 @@ class AppleTVPlus:
         )
 
         accessToken = json.loads(m.text)
-        accessToken = accessToken[0]["data"]["configureParams"]["developerToken"]
+        if isinstance(accessToken, list):
+            accessToken = accessToken[0]["data"]["configureParams"]["developerToken"]
+        else:
+            accessToken = accessToken["data"][0]["data"]["configureParams"]["developerToken"]
         self.session.headers.update(
             {'authorization': f'Bearer {accessToken}'}
         )
@@ -106,10 +109,10 @@ class AppleTVPlus:
         }
         
         try:
-            r = requests.get(url=apiUrl, params=params)
+            r = self.session.get(url=apiUrl, params=params)
         except:
             logger.warning("SSL failed! Trying without SSL...")
-            r = requests.get(url=apiUrl, params=params, verify=False)
+            r = self.session.get(url=apiUrl, params=params, verify=False)
 
         return json.loads(r.text)
     
@@ -122,6 +125,10 @@ class AppleTVPlus:
             return datetime.datetime.utcfromtimestamp(date/1000.0).strftime('%Y-%m-%d')
 
         data = self.__get_json()
+
+        if "backgroundVideo" not in data["data"]["content"]:
+            logger.error("No default trailer available for this content!", 1)
+            return None
 
         try:
             coverImage = data["data"]["content"]["backgroundVideo"]["images"]["contentImage"]["url"].format(
