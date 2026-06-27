@@ -48,7 +48,7 @@ class AppleTVPlus:
         )
 
         accessToken = json.loads(m.text)
-        accessToken = accessToken[0]["data"]["configureParams"]["developerToken"]
+        accessToken = accessToken["data"][0]["data"]["configureParams"]["developerToken"]
         self.session.headers.update(
             {'authorization': f'Bearer {accessToken}'}
         )
