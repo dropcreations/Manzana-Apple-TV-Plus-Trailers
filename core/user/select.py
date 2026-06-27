@@ -36,7 +36,7 @@ def get_select(data):
 
     if id == "":
         logger.error("Please enter an ID to continue...")
-        get_select(data)
+        return get_select(data)
     elif id in ["all", "a"]:
         return data
     else:
@@ -44,4 +44,6 @@ def get_select(data):
             return [data[int(i)] for i in id.split(' ')]
         except (ValueError, IndexError):
             logger.error("Unable to process ID(s)...")
+            return get_select(data)
+
             get_select(data)
